@@ -3,3 +3,4 @@ xcuserdata
 *.o
 codesnippets
 *.dsym
+*.lst
