@@ -12,10 +12,10 @@
 // Setup the parameters to print hello world
 // and then call the Kernel to do it.
 _start: mov	X0, #1		// 1 = StdOut
-	adr	X1, helloworld 	// string to print
-	mov	X2, #13	    	// length of our string
-	mov	X16, #4		// Unix write system call
-	svc	#0x80		// Call kernel to output the string
+		adr	X1, helloworld 	// string to print
+		mov	X2, #13	    	// length of our string
+		mov	X16, #4		// Unix write system call
+		svc	#0x80		// Call kernel to output the string
 
 // Setup the parameters to exit the program
 // and then call the kernel to do it.
