@@ -6,11 +6,10 @@
 // X16 - Mach System Call function number
 //
 
-.equ SYS_write, 4
-.equ SYS_exit, 1
+#include <sys/syscall.h>
 
 .global _start		// Provide program starting address to linker
-.align 2			// Make sure everything is aligned properly
+.align 4			// Make sure everything is aligned properly
 
 // Setup the parameters to print hello world
 // and then call the Kernel to do it.

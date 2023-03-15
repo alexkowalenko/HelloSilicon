@@ -1,11 +1,11 @@
-AS=as
-LD=ld64.lld -platform_version macos 13 0
+AS=clang -x assembler-with-cpp -static -nostdlib -c
+LD=ld64.lld -platform_version macos 13 0 -arch arm64 
 
-HelloWorld: HelloWorld.o
-	ld -o HelloWorld HelloWorld.o -lSystem -syslibroot `xcrun -sdk macosx --show-sdk-path` -e _start -arch arm64 
+HelloWorld: HelloWorld.o makefile
+	$(LD) -o HelloWorld HelloWorld.o -e _start
 
-HelloWorld.o: HelloWorld.S
-	as -o HelloWorld.o -c HelloWorld.S
+HelloWorld.o: HelloWorld.S makefile
+	$(AS) -o HelloWorld.o HelloWorld.S
 
 clean:
 	rm HelloWorld.o HelloWorld
